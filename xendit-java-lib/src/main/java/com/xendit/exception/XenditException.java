@@ -1,5 +1,6 @@
 package com.xendit.exception;
 
+import java.util.Collections;
 import java.util.Map;
 
 public class XenditException extends Exception {
@@ -13,7 +14,7 @@ public class XenditException extends Exception {
   public XenditException(String message, String code, Map<String, Object> context) {
     super(message);
     this.code = code;
-    this.context = context;
+    this.context = context != null ? context : Collections.emptyMap();
   }
 
   public String getErrorCode() {
